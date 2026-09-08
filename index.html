@@ -610,6 +610,134 @@ footer{
   .footer-grid{ grid-template-columns:1fr; padding:40px 0 20px; }
   .govbar .container{ font-size:11px; }
 }
+
+/* ===== ACCORDION HALAMAN KLAIM ===== */
+.accordion{
+  margin-top:6px;
+}
+
+.acc-item{
+  border-bottom:1px solid var(--border);
+}
+
+.acc-item:first-child{
+  border-top:1px solid var(--border);
+}
+
+.acc-item > summary{
+  list-style:none;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:16px 4px;
+  font-weight:700;
+  font-size:15px;
+  color:var(--ink-700);
+}
+
+.acc-item > summary::-webkit-details-marker{
+  display:none;
+}
+
+.acc-item[open] > summary{
+  color:var(--navy-800);
+}
+
+.acc-letter{
+  width:28px;
+  height:28px;
+  border-radius:50%;
+  border:1.5px solid var(--navy-700);
+  color:var(--navy-700);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:13px;
+  font-weight:800;
+  flex-shrink:0;
+}
+
+.acc-item[open] .acc-letter{
+  background:var(--navy-800);
+  color:#fff;
+  border-color:var(--navy-800);
+}
+
+.acc-title{
+  flex:1;
+}
+
+.acc-chevron{
+  width:16px;
+  height:16px;
+  flex-shrink:0;
+  color:var(--ink-500);
+  transition:transform .18s ease;
+}
+
+.acc-item[open] .acc-chevron{
+  transform:rotate(180deg);
+  color:var(--navy-700);
+}
+
+.acc-body{
+  padding:2px 4px 22px 42px;
+}
+
+.acc-body p{
+  margin:0 0 12px;
+}
+
+.acc-body p:last-child{
+  margin-bottom:0;
+}
+
+/* ===== GRID IKON DOKUMEN ===== */
+.icon-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:24px 16px;
+  margin-top:20px;
+}
+
+.icon-grid-item{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  gap:10px;
+}
+
+.icon-grid-item .icon-box{
+  width:56px;
+  height:56px;
+  border:1.5px solid var(--navy-600);
+  border-radius:10px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--navy-700);
+  flex-shrink:0;
+}
+
+.icon-grid-item .icon-box svg{
+  width:26px;
+  height:26px;
+}
+
+.icon-grid-item span{
+  font-size:12.5px;
+  color:var(--ink-700);
+  line-height:1.4;
+}
+
+@media(max-width:650px){
+  .icon-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
 </style>
 </head>
 
@@ -956,63 +1084,216 @@ footer{
   <main class="content">
     <div class="container">
 
+      <!-- JKK -->
       <div class="content-card jkk">
         <div class="card-head">
           <span class="card-icon icon-green">🩹</span>
           <h2>Jaminan Kecelakaan Kerja (JKK)</h2>
         </div>
-        <p>
-          Apabila peserta mengalami <strong>kecelakaan kerja atau penyakit akibat kerja</strong>,
-          peserta dapat langsung mendapatkan pelayanan di rumah sakit/fasilitas kesehatan
-          dengan menunjukkan <strong>Kartu BPJS Ketenagakerjaan</strong>.
-        </p>
-        <p>Untuk proses klaim, lengkapi berkas yang diperlukan sesuai ketentuan BPJS Ketenagakerjaan.</p>
-        <p>
-          Apabila biaya pengobatan telah dibayarkan terlebih dahulu,
-          <strong>simpan bukti pembayaran asli</strong> untuk proses pengajuan penggantian
-          biaya sesuai ketentuan.
-        </p>
-        <div class="note">
-          <strong>Pengajuan klaim dilakukan langsung kepada BPJS Ketenagakerjaan sesuai prosedur yang berlaku.</strong>
-        </div>
+
+        <details class="accordion acc-item" open>
+          <summary>
+            <span class="acc-letter">a</span>
+            <span class="acc-title">Ketentuan Klaim</span>
+            <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </summary>
+
+          <div class="acc-body">
+            <p>
+              Apabila peserta mengalami <strong>kecelakaan kerja atau penyakit akibat kerja</strong>,
+              peserta dapat langsung mendapatkan pelayanan di rumah sakit/fasilitas kesehatan
+              dengan menunjukkan <strong>Kartu BPJS Ketenagakerjaan</strong>.
+            </p>
+
+            <p>
+              Untuk proses klaim, lengkapi berkas yang diperlukan sesuai ketentuan
+              BPJS Ketenagakerjaan.
+            </p>
+
+            <p>
+              Apabila biaya pengobatan telah dibayarkan terlebih dahulu,
+              <strong>simpan bukti pembayaran asli</strong> untuk proses pengajuan
+              penggantian biaya sesuai ketentuan.
+            </p>
+
+            <div class="note">
+              <strong>
+                Pengajuan klaim dilakukan langsung kepada BPJS Ketenagakerjaan
+                sesuai prosedur yang berlaku.
+              </strong>
+            </div>
+          </div>
+        </details>
+
+        <details class="accordion acc-item">
+          <summary>
+            <span class="acc-letter">b</span>
+            <span class="acc-title">Hal yang Perlu Disiapkan</span>
+            <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </summary>
+
+          <div class="acc-body">
+            <div class="icon-grid">
+
+              <div class="icon-grid-item">
+                <span class="icon-box">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <path d="M12 21s-7-4.6-9.5-9C.7 8.4 2 4.5 6 4c2 0 3.5 1 4 2.5C10.5 5 12 4 14 4c4 0 5.3 4 3.5 8-2.5 4.4-9.5 9-9.5 9Z"/>
+                    <path d="M9 12h6M12 9v6"/>
+                  </svg>
+                </span>
+                <span>Kartu BPJS Ketenagakerjaan</span>
+              </div>
+
+              <div class="icon-grid-item">
+                <span class="icon-box">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/>
+                  </svg>
+                </span>
+                <span>Pelayanan di rumah sakit/fasilitas kesehatan</span>
+              </div>
+
+              <div class="icon-grid-item">
+                <span class="icon-box">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <path d="M7 3h10a1 1 0 0 1 1 1v16l-3-2-3 2-3-2-3 2V4a1 1 0 0 1 1-1Z"/>
+                    <path d="M9 8h6M9 12h6"/>
+                  </svg>
+                </span>
+                <span>Berkas yang diperlukan sesuai ketentuan</span>
+              </div>
+
+              <div class="icon-grid-item">
+                <span class="icon-box">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <rect x="3" y="6" width="18" height="13" rx="1.5"/>
+                    <path d="M3 10h18M7 15h4"/>
+                  </svg>
+                </span>
+                <span>Bukti pembayaran asli untuk penggantian biaya</span>
+              </div>
+
+            </div>
+          </div>
+        </details>
       </div>
 
+
+      <!-- JKM -->
       <div class="content-card jkm">
         <div class="card-head">
           <span class="card-icon icon-blue">🕊️</span>
           <h2>Jaminan Kematian (JKM)</h2>
         </div>
-        <p>
-          Apabila peserta meninggal dunia <strong>bukan karena kecelakaan kerja</strong>,
-          ahli waris dapat mengajukan klaim JKM secara langsung ke
-          <strong>kantor BPJS Ketenagakerjaan</strong>.
-        </p>
 
-        <h3>Dokumen yang perlu disiapkan:</h3>
-        <ul class="doc-list">
-          <li><strong>Akta kematian</strong></li>
-          <li><strong>Kartu BPJS Ketenagakerjaan</strong> (fisik atau digital)</li>
-          <li><strong>KTP almarhum</strong></li>
-          <li><strong>KTP ahli waris</strong></li>
-          <li><strong>Kartu Keluarga (KK)</strong></li>
-          <li><strong>Surat Keterangan Ahli Waris</strong> yang disahkan oleh pejabat setempat dan ditandatangani oleh <strong>2 (dua) orang saksi</strong>, yang diterbitkan oleh kelurahan atau kecamatan</li>
-          <li><strong>Rekening aktif milik ahli waris</strong> (bebas menggunakan rekening bank apa saja; buku rekening dilampirkan)</li>
-        </ul>
+        <details class="accordion acc-item" open>
+          <summary>
+            <span class="acc-letter">a</span>
+            <span class="acc-title">Ketentuan Klaim</span>
+            <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </summary>
 
-        <div class="note">
-          <strong>Seluruh berkas dibawa langsung oleh keluarga/ahli waris ke kantor BPJS Ketenagakerjaan untuk proses pengajuan klaim.</strong>
-        </div>
+          <div class="acc-body">
+            <p>
+              Apabila peserta meninggal dunia <strong>bukan karena kecelakaan kerja</strong>,
+              ahli waris dapat mengajukan klaim JKM secara langsung ke
+              <strong>kantor BPJS Ketenagakerjaan</strong>.
+            </p>
 
-        <p><em>Persyaratan dan prosedur klaim dapat mengikuti ketentuan BPJS Ketenagakerjaan yang berlaku.</em></p>
+            <div class="note">
+              <strong>
+                Seluruh berkas dibawa langsung oleh keluarga/ahli waris ke kantor
+                BPJS Ketenagakerjaan untuk proses pengajuan klaim.
+              </strong>
+            </div>
+
+            <p>
+              <em>
+                Persyaratan dan prosedur klaim dapat mengikuti ketentuan
+                BPJS Ketenagakerjaan yang berlaku.
+              </em>
+            </p>
+          </div>
+        </details>
+
+        <details class="accordion acc-item">
+          <summary>
+            <span class="acc-letter">b</span>
+            <span class="acc-title">Dokumen yang Perlu Disiapkan</span>
+            <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </summary>
+
+          <div class="acc-body">
+            <div class="icon-grid">
+
+              <div class="icon-grid-item">
+                <span class="icon-box">📄</span>
+                <span>Akta kematian</span>
+              </div>
+
+              <div class="icon-grid-item">
+                <span class="icon-box">💳</span>
+                <span>Kartu BPJS Ketenagakerjaan (fisik atau digital)</span>
+              </div>
+
+              <div class="icon-grid-item">
+                <span class="icon-box">🪪</span>
+                <span>KTP almarhum</span>
+              </div>
+
+              <div class="icon-grid-item">
+                <span class="icon-box">🪪</span>
+                <span>KTP ahli waris</span>
+              </div>
+
+              <div class="icon-grid-item">
+                <span class="icon-box">👨‍👩‍👧‍👦</span>
+                <span>Kartu Keluarga (KK)</span>
+              </div>
+
+              <div class="icon-grid-item">
+                <span class="icon-box">📋</span>
+                <span>Surat Keterangan Ahli Waris (disahkan pejabat setempat, 2 saksi)</span>
+              </div>
+
+              <div class="icon-grid-item">
+                <span class="icon-box">💳</span>
+                <span>Rekening aktif milik ahli waris</span>
+              </div>
+
+              <div class="icon-grid-item">
+                <span class="icon-box">💍</span>
+                <span>Buku Nikah (jika ahli waris suami/istri)</span>
+              </div>
+
+            </div>
+          </div>
+        </details>
       </div>
 
+
+      <!-- BANTUAN -->
       <div class="content-card">
         <div class="card-head">
           <span class="card-icon icon-orange">💬</span>
           <h2>Perlu bantuan informasi?</h2>
         </div>
-        <p>Dinas Perikanan Kabupaten Bintan dapat dihubungi untuk informasi mengenai program.</p>
-        <a class="btn btn-primary" href="https://wa.me/628127783109?text=Saya%20ingin%20memperoleh%20informasi%20terkait%20program%20BPJS%20Ketenagakerjaan%20bagi%20nelayan%20dan%20pembudidaya%20ikan%20kecil%20di%20laut.%20Mohon%20informasi%20lebih%20lanjut.%20Terima%20kasih.">
+
+        <p>
+          Dinas Perikanan Kabupaten Bintan dapat dihubungi untuk informasi mengenai program.
+        </p>
+
+        <a class="btn btn-primary"
+           href="https://wa.me/628127783109?text=Saya%20ingin%20memperoleh%20informasi%20terkait%20program%20BPJS%20Ketenagakerjaan%20bagi%20nelayan%20dan%20pembudidaya%20ikan%20kecil%20di%20laut.%20Mohon%20informasi%20lebih%20lanjut.%20Terima%20kasih.">
           WhatsApp 0812-7783-109
         </a>
       </div>
